@@ -16,9 +16,21 @@
     <link href="./static/css/main.dc20f3ac.css" rel="stylesheet">
 </head>
 
-<body style="height: 1071px; overflow: hidden; margin-top: 100px; padding-bottom: 100px;"><noscript>You need to enable
+<body style="height: 1071px; overflow: hidden; margin-top: 100px; padding-bottom: 100px;">
+    <noscript>You need to enable
         JavaScript to run this app.</noscript>
-    <div id="root" style="height:100%;overflow:auto">
+
+        <div id="root-container" style="height:100%;overflow:auto"></div>
+
+
+<script>
+
+    function loadPage(pageContent) {
+        document.getElementById('root-container').innerHTML = pageContent;
+    }
+
+    
+    var html_page_index = `<div id="root" style="height:100%;overflow:auto">
         <div class="Toastify"></div>
         <div
             class="h-screen bg-gradient-to-b from-[#F7FFEB] via-[#E4FFBE] to-[#79B22A] fixed z-0 left-0 right-0 bottom-0 top-0 dark:bg-none dark:bg-[#030C02] max-w-md mx-auto">
@@ -41,22 +53,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="flex justify-center relative mt-2"><img src="./images/x4.png"
-                                class="w-[143px] h-[38px]" alt=""><button
-                                class="btn-hover z-20  rounded-lg w-[44px] h-[44px] flex justify-center items-center absolute left-0 -bottom-[10px]"><img
-                                    class="w-[44px] h-[44px]" src="./images/light.png?v=3" alt=""></button><button
-                                class="btn-hover z-20  rounded-lg w-[44px] h-[44px] flex justify-center items-center absolute right-0 -bottom-[10px]">
-                                <div class="w-[10px] h-[10px] absolute z-10 -right-0 top-0">
-                                    <div class="animate-blink w-full h-full absolute  rounded-[50%] "></div>
-                                    <div class="w-full h-full bg-[#FFA928] absolute  rounded-[50%] "></div>
-                                </div><img class="w-[48px] h-[52px]" src="./images/daily_icon.png?v=3" alt="">
-                            </button><button
-                                class="btn-hover z-20 rounded-lg w-[44px] h-[44px] flex justify-center items-center absolute right-0 -bottom-[67px]"><img
-                                    class="w-[48px] h-[48px]" src="./images/purchase/btn_icon.png?v=3"
-                                    alt=""></button><button
-                                class="btn-hover z-20 rounded-lg w-[44px] h-[44px] flex justify-center items-center absolute left-0 -bottom-[67px] cm-avatar"><img
-                                    class="w-[48px] h-[48px]" src="./images/market/marketplace_ic.png" alt=""></button>
-                        </div> -->
                     </div>
                     <div class="flex flex-1 max-h-[510px] relative justify-center bg-no-repeat bg-contain bg-center z-10 pt-10"
                         style="background-image: url(&quot;./images/trees/8.png?v=4&quot;);">
@@ -72,23 +68,31 @@
                                 <div class="">
                                     <div class="grid grid-cols-4 gap-2 ">
                                         <div class="flex-1 relative">
+                                            <div id="click_exchange"
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                            src="./images/inventory.png" alt="Inventory"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Exchange</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
                                             <div class="w-[14px] h-[14px] absolute z-10 -right-1">
                                                 <div class="animate-blink w-full h-full absolute  rounded-[50%] "></div>
                                                 <div class="w-full h-full bg-[#FFA928] absolute  rounded-[50%] "></div>
                                             </div>
-                                            <div
+                                            <div id="click_missions"
                                                 class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
-                                                <a href="./missions.html">
-                                                    <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                <div  class="flex flex-col items-center pb-[2px] lsm:pb-0">
                                                         <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
                                                                 src="./images/navbar/missions.png" alt="Missions"></div>
                                                         <p class="dark:text-white text-xs font-medium">Missions</p>
                                                     </div>
-                                                </a>
                                             </div>
                                         </div>
                                         <div class="flex-1 relative">
-                                            <div
+                                            <div id="click_boots" 
                                                 class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
                                                 <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
                                                     <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
@@ -107,19 +111,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="flex-1 relative">
-                                            <div class="absolute -right-3 -top-2 z-10"><img
-                                                    src="./images/inventory/new.png?v=4" class="w-[56px] h-[43]" alt="">
-                                            </div>
-                                            <div
-                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
-                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
-                                                    <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
-                                                            src="./images/inventory.png" alt="Inventory"></div>
-                                                    <p class="dark:text-white text-xs font-medium">Inventory</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +122,343 @@
                         src="./images/darkmodebg.png?v=3" class="object-fill w-full" alt=""></div>
             </div>
         </div>
-    </div><!-- Cloudflare Pages Analytics -->
+    </div>`
+
+    var html_page_missions = `
+     <div id="root" style="height:100%;overflow:auto">
+        <div class="Toastify"></div>
+        <div
+            class="h-screen bg-gradient-to-b from-[#F7FFEB] via-[#E4FFBE] to-[#79B22A] fixed z-0 left-0 right-0 bottom-0 top-0 dark:bg-none dark:bg-[#030C02] max-w-md mx-auto">
+            <div>
+                <div class=" pt-[42px] px-4 relative h-screen bg-[#F2FFE0] dark:bg-transparent">
+                    <div class="Toastify"></div>
+                    <div class="flex flex-col items-center dark:text-white">
+                        <p class="text-[24px] font-extrabold">Missions</p>
+                        <div class="flex gap-1"><img src="images/important.png" width="20" alt="" class="h-5">
+                            <p class="text-sm text-center">Tasks with icon are needed for future benefits</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 overflow-auto max-h-[calc(100%-100px)] ">
+                        <div
+                            class="dark:bg-[#E3FCC214] mb-6 relative z-20 border-[1px] border-[#4D7F0C] rounded-2xl bg-[#E3FCC2]  px-4 pt-4">
+                            <div class="pb-[10px] font-semibold dark:text-white">Our Garden</div>
+                            <div
+                                class="btn-hover dark:btn-click z-10 relative cursor-pointer grid grid-cols-10 gap-3 bg-white rounded-2xl p-4 w-full mb-[18px]  dark:gradient-border-mask-mission dark:bg-transparent border-[3px] border-[#97C35B] border-solid drop-shadow-[0_4px_0px_#4D7F0C] dark:drop-shadow-none">
+                                <div class="col-span-2 flex items-center">
+                                    <div><img
+                                            src="https://d1j2c9jkfhu70p.cloudfront.net/8b6e3441-0915-471d-89d5-271e517845de.png"
+                                            width="48" height="48" alt="storage"></div>
+                                </div>
+                                <div class="col-span-8 flex items-center dark:text-white">
+                                    <div class="">
+                                        <p class="font-semibold text-base">Don't Miss Out</p>
+                                        <div class="flex items-center text-sm">
+                                            <div class="relative flex items-center"><span
+                                                    class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary mr-1 css-1xxlah6"
+                                                    role="progressbar" aria-valuenow="100"
+                                                    style="width: 16px; height: 16px; transform: rotate(-90deg);"><svg
+                                                        class="MuiCircularProgress-svg css-13o7eu2"
+                                                        viewBox="22 22 44 44">
+                                                        <circle
+                                                            class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-nbfpn7"
+                                                            cx="44" cy="44" r="19" fill="none" stroke-width="6"
+                                                            style="stroke-dasharray: 119.381; stroke-dashoffset: 0px;">
+                                                        </circle>
+                                                    </svg></span><span
+                                                    class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary mr-1 css-113a310"
+                                                    role="progressbar" aria-valuenow="0"
+                                                    style="width: 16px; height: 16px; transform: rotate(-90deg);"><svg
+                                                        class="MuiCircularProgress-svg css-13o7eu2"
+                                                        viewBox="22 22 44 44">
+                                                        <circle
+                                                            class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate MuiCircularProgress-circleDisableShrink css-nbfpn7"
+                                                            cx="44" cy="44" r="19" fill="none" stroke-width="6"
+                                                            style="stroke-dasharray: 119.381; stroke-dashoffset: 119.381px;">
+                                                        </circle>
+                                                    </svg></span></div><span>In progress (0/1)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="btn-hover dark:btn-click z-10 relative cursor-pointer grid grid-cols-10 gap-3 bg-white rounded-2xl p-4 w-full mb-[18px]  dark:gradient-border-mask-mission dark:bg-transparent border-[3px] border-[#97C35B] border-solid drop-shadow-[0_4px_0px_#4D7F0C] dark:drop-shadow-none">
+                                <div class="col-span-2 flex items-center">
+                                    <div><img src="https://d17mt0dwfjb4ne.cloudfront.net/MissionFollowX.png" width="48"
+                                            height="48" alt="storage"></div>
+                                </div>
+                                <div class="col-span-8 flex items-center dark:text-white">
+                                    <div class="">
+                                        <p class="font-semibold text-base">Follow Us</p>
+                                        <div class="flex items-center text-sm"><img
+                                                src="/images/daily/mission_complete.png"
+                                                class="dark:hidden inline-block w-4 mr-1" alt=""><img
+                                                src="/images/daily/dark_mission_complete.png"
+                                                class="hidden dark:inline-block w-4 mr-1" alt=""><span>Completed
+                                                (2/2)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="dark:bg-[#E3FCC214] mb-6 relative z-20 border-[1px] border-[#4D7F0C] rounded-2xl bg-[#E3FCC2]  px-4 pt-4">
+                            <div class="pb-[10px] font-semibold dark:text-white">Our Neighborhood</div>
+                            <div
+                                class="btn-hover dark:btn-click z-10 relative cursor-pointer grid grid-cols-10 gap-3 bg-white rounded-2xl p-4 w-full mb-[18px]  dark:gradient-border-mask-mission dark:bg-transparent border-[3px] border-[#97C35B] border-solid drop-shadow-[0_4px_0px_#4D7F0C] dark:drop-shadow-none">
+                                <div class="col-span-2 flex items-center">
+                                    <div><img
+                                            src="https://d1j2c9jkfhu70p.cloudfront.net/a9414699-5c76-41fd-90b4-1a952aeaddf4.jpg"
+                                            width="48" height="48" alt="storage"></div>
+                                </div>
+                                <div class="col-span-8 flex items-center dark:text-white">
+                                    <div class="">
+                                        <p class="font-semibold text-base">Yescoin</p>
+                                        <div class="flex items-center text-sm"><img
+                                                src="/images/daily/mission_complete.png"
+                                                class="dark:hidden inline-block w-4 mr-1" alt=""><img
+                                                src="/images/daily/dark_mission_complete.png"
+                                                class="hidden dark:inline-block w-4 mr-1" alt=""><span>Completed
+                                                (2/2)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fixed left-0 right-0 z-30 bottom-[40px] ">
+                        <div class="max-w-md mx-auto px-4">
+                            <div>
+                                <div class="Toastify"></div>
+                                <div class="">
+                                    <div class="grid grid-cols-4 gap-2 ">
+                                        <div class="flex-1 relative">
+                                            <!-- <div class="absolute -right-3 -top-2 z-10"><img
+                                                    src="./images/inventory/new.png?v=4" class="w-[56px] h-[43]" alt="">
+                                            </div> -->
+                                            <div id="click_exchange_1"
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                            src="./images/inventory.png" alt="Inventory"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Exchange</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
+                                            <div class="w-[14px] h-[14px] absolute z-10 -right-1">
+                                                <div class="animate-blink w-full h-full absolute  rounded-[50%] "></div>
+                                                <div class="w-full h-full bg-[#FFA928] absolute  rounded-[50%] "></div>
+                                            </div>
+                                            <div id="click_missions_1"
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div  class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                        <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                                src="./images/navbar/missions.png" alt="Missions"></div>
+                                                        <p class="dark:text-white text-xs font-medium">Missions</p>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
+                                            <div id="click_boots_1" 
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                            src="./images/navbar/boots.png" alt="Boost"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Boost</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
+                                            <div
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="43" height="36"
+                                                            src="./images/navbar/friends.png" alt="Friends"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Friends</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden dark:block fixed h-[194px] bottom-0 left-0 z-0"><img src="/images/darkmodebg.png?v=3"
+                        class="object-fill w-full" alt=""></div>
+            </div>
+        </div>
+    </div>`
+
+
+    var html_page_boots = `
+    <div id="root" style="height:100%;overflow:auto">
+        <div class="Toastify"></div>
+        <div
+            class="h-screen bg-gradient-to-b from-[#F7FFEB] via-[#E4FFBE] to-[#79B22A] fixed z-0 left-0 right-0 bottom-0 top-0 dark:bg-none dark:bg-[#030C02] max-w-md mx-auto">
+            <div>
+                <div class="overflow-auto pt-[42px] px-4  relative h-screen bg-[#F2FFE0] dark:bg-transparent">
+                    <div class="Toastify"></div>
+                    <div class="flex flex-col items-center dark:text-white">
+                        <p class="text-base font-normal">Your balance</p>
+                        <div class="flex items-center gap-2"><img src="/images/icons/token_icon.png?v=3" width="44"
+                                height="44" alt="token">
+                            <p class="text-[40px] font-extrabold">0.758759</p>
+                        </div>
+                    </div>
+                    <div class="mt-[49px]">
+                        <div
+                            class="btn-hover dark:btn-click z-10 relative cursor-pointer grid grid-cols-7 gap-0 bg-white rounded-2xl p-4 w-full mb-[18px]  dark:gradient-border-mask-mission dark:bg-transparent dark:drop-shadow-none border-[1px] border-[#4D7F0C] border-solid drop-shadow-[0_4px_0px_#4D7F0C]">
+                            <div class="col-span-2 flex items-center ">
+                                <div class=""><img class="object-contain w-[73px] h-[67px]"
+                                        src="/images/storage/1.png?v=3" width="73" height="67" alt="storage"></div>
+                            </div>
+                            <div class="col-span-5 dark:text-white">
+                                <p class="font-semibold mb-1">Storage Level 1</p>
+                                <div class=" mb-1">
+                                    <p class="text-sm font-normal">Increase time between claims</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1"><img class=""
+                                            src="/images/icons/token_icon.png?v=3" width="14" height="14" alt="token">
+                                        <p class="text-xs font-normal">
+                                            0.4 to upgrade
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="btn-hover dark:btn-click z-10 relative cursor-pointer grid grid-cols-7 gap-0 bg-white rounded-2xl p-4 w-full mb-[18px]  dark:gradient-border-mask-mission dark:bg-transparent dark:drop-shadow-none border-[1px] border-[#4D7F0C] border-solid drop-shadow-[0_4px_0px_#4D7F0C]">
+                            <div class="col-span-2 flex items-center ">
+                                <div class=""><img class="object-contain w-[73px] h-[67px]"
+                                        src="/images/trees/1.png?v=3" width="73" height="67" alt="storage"></div>
+                            </div>
+                            <div class="col-span-5 dark:text-white">
+                                <p class="font-semibold mb-1">Tree Level 1</p>
+                                <div class=" mb-1">
+                                    <p class="text-sm font-normal">Increase passive planting speed</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1"><img class=""
+                                            src="/images/icons/token_icon.png?v=3" width="14" height="14" alt="token">
+                                        <p class="text-xs font-normal">
+                                            0.4 to upgrade
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="btn-hover dark:btn-click z-10 relative cursor-pointer grid grid-cols-7 gap-0 bg-white rounded-2xl p-4 w-full mb-[18px]  dark:gradient-border-mask-mission dark:bg-transparent dark:drop-shadow-none border-[1px] border-[#4D7F0C] border-solid drop-shadow-[0_4px_0px_#4D7F0C]">
+                            <div class="col-span-2 flex items-center ">
+                                <div class=""><img class="object-contain w-[73px] h-[67px]" src="/images/holy/1.png?v=3"
+                                        width="73" height="67" alt="storage"></div>
+                            </div>
+                            <div class="col-span-5 dark:text-white">
+                                <p class="font-semibold mb-1">Holy Water Level 1</p>
+                                <div class=" mb-1">
+                                    <p class="text-sm font-normal">Superboost speed 1.2x.. 2.5x times</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1"><img class="w-[21px] h-5"
+                                            src="/images/icons/holy.png?v=3" width="14" height="14" alt="token">
+                                        <p class="text-xs font-normal">
+                                            Complete mission to upgrade
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fixed left-0 right-0 z-30 bottom-[40px] ">
+                        <div class="max-w-md mx-auto px-4">
+                            <div>
+                                <div class="Toastify"></div>
+                                <div class="">
+                                    <div class="grid grid-cols-4 gap-2 ">
+                                        <div class="flex-1 relative">
+                                            <!-- <div class="absolute -right-3 -top-2 z-10"><img
+                                                    src="./images/inventory/new.png?v=4" class="w-[56px] h-[43]" alt="">
+                                            </div> -->
+                                            <div id="click_exchange_2"
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                            src="./images/inventory.png" alt="Inventory"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Exchange</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
+                                            <div class="w-[14px] h-[14px] absolute z-10 -right-1">
+                                                <div class="animate-blink w-full h-full absolute  rounded-[50%] "></div>
+                                                <div class="w-full h-full bg-[#FFA928] absolute  rounded-[50%] "></div>
+                                            </div>
+                                            <div id="click_missions_2"
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div  class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                        <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                                src="./images/navbar/missions.png" alt="Missions"></div>
+                                                        <p class="dark:text-white text-xs font-medium">Missions</p>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
+                                            <div id="click_boots_2" 
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="36" height="36"
+                                                            src="./images/navbar/boots.png" alt="Boost"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Boost</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 relative">
+                                            <div
+                                                class="btn-hover dark:btn-click cursor-pointer w-full h-full p-[9px] rounded-[16px] bg-[#fff] drop-shadow-[0_3px_0px_#4D7F0C] dark:gradient-border-mask dark:bg-transparent dark:drop-shadow-none">
+                                                <div class="flex flex-col items-center pb-[2px] lsm:pb-0">
+                                                    <div class="h-[36px] "><img class="h-[36px]" width="43" height="36"
+                                                            src="./images/navbar/friends.png" alt="Friends"></div>
+                                                    <p class="dark:text-white text-xs font-medium">Friends</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="hidden dark:block fixed h-[194px] bottom-0 left-0 z-0"><img src="/images/darkmodebg.png?v=3"
+                        class="object-fill w-full" alt=""></div>
+            </div>
+        </div>
+    </div>`;
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        loadPage(html_page_index);
+        Telegram.WebApp.ready();
+
+        document.getElementById('root-container').addEventListener('click', function (event) {
+
+            if(event.target.closest('#click_exchange_1') || event.target.closest('#click_exchange') ||  event.target.closest('#click_exchange_2')){
+                loadPage(html_page_index);
+            }else if (event.target.closest('#click_missions') || event.target.closest('#click_missions_1') || event.target.closest('#click_missions_2')) {
+                loadPage(html_page_missions);
+            } else if (event.target.closest('#click_boots') || event.target.closest('#click_boots_1') || event.target.closest('#click_boots_3')) {
+                loadPage(html_page_boots);
+            }
+        });
+
+
+
+        Telegram.WebApp.BackButton.onClick(function() {
+            loadPage(html_page_index); 
+        });
+    });
+
+</script>
 
 
 </body>

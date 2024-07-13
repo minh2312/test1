@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>React App</title>
+    <link href="./static/css/main.dc20f3ac.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root">
+        <div id="home" class="page">
+            <p>Home Page</p>
+            <button onclick="navigateTo('missions')">Go to Missions</button>
+        </div>
+        <div id="missions" class="page" style="display:none;">
+            <p>Missions Page</p>
+            <button onclick="navigateTo('home')">Go to Home</button>
+        </div>
+    </div>
+</body>
+<script>
+    function navigateTo(page) {
+        document.querySelectorAll('.page').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.getElementById(page).style.display = 'block';
+    }
+</script>
+</html>
